@@ -1,4 +1,3 @@
-// var arr1 = new Array();
 var arr1 = [
     '《徐明浩 那幕falling down》\n',
     '《徐明浩 小时候的梦想当明星》\n',
@@ -17,10 +16,8 @@ var arr1 = [
     '《徐明浩青春有你》\n',
     '《徐明浩时尚》\n',
     '《徐明浩有趣》\n',
-    '《徐明浩bboy》\n',
-    '《徐明浩小八老师》\n',
-    '《徐明浩武术》\n',
     '《徐明浩行走的画报》\n'
+
 ];
 
 var arr2 =[
@@ -74,9 +71,8 @@ var arr2 =[
     '你的眸中有山川河流 胜过我行经路上的一切不朽',
     '你是雾是旧梦，是写在糖纸上的诗，是我心上的一间小酒馆',
     '星河璀璨，阳光干净，在人间所有美好的存在里，我总是最爱你。',
-    '喜欢一切可爱的人与事，悦耳的风铃、伸懒腰的猫咪、叽叽喳喳的小鸟、在风里翻飞的书页上的漂亮的文字。喜欢世间万物，但我更喜欢你，因为你是可爱本身。',
+    '我喜欢一切可爱的人与事，悦耳的风铃、伸懒腰的猫咪、叽叽喳喳的小鸟、在风里翻飞的书页上的漂亮的文字。喜欢世间万物，但我更喜欢你，因为你是可爱本身。',
     '我不知道歌里唱的是谁，我听的全是你。',
-    '我从来没遇见过如此温柔的人。他像春夏秋冬的流转，像人间错落的烟火，像东京初见的樱花，像爱伦披的诗歌。他称得上世间一切美好的形容词，而这样一来，一切绝美的景色，岂不都融成了他眼底的一片波光潋滟的清澈。',
     '你是我安稳岁月里的节外生枝。',
     '我以为我看够了阳光 ，它泛滥得多廉价而寻常 ，直到与你人海相望 ，才知我从未曾真的见过阳光。',
     '突然明白这世上所有丹青水墨，山遥水阔，都是为了铺垫你这人间绝色。',
@@ -84,7 +80,6 @@ var arr2 =[
     '你像夏至的分界线，是我一生里最长的那个白天',
     '此生能够遇上你，是上苍对我最大的赐福。我会好好珍惜这份缘。',
     '永远如初，不管有多么困难，不管你是否听见，都会一心向你，如最初般珍惜这份爱。',
-    '时间不会重来，幸福不会永远，真情贵在天天，甜蜜留在心田，相爱的缘，永远不会消散，终点，只会更珍惜当前，把幸福膨胀，把真爱飞扬，愿一年的时光，给你十年的幸福。',
     '不管花开花落，有你就有美好的生活;且看云卷云舒，有你是我一生的幸福。细碎时光，悠长岁月，爱如参天树，开出甜蜜花。',
     '我想在五十年之后我一定还是像现在一样爱你。',
     '我不去想是否能够成功，既然选择了远方，便只顾风雨兼程;我不去想，身后会不会袭来寒风冷雨，既然目标是地平线，留给世界的只能是背影。',
@@ -125,60 +120,6 @@ var arr2 =[
 
 ];
 
-//仅随机生成
-function newItem() {
-
-    var item_num = 5;
-
-    //获取单选框内的数字
-    var select_num = document.getElementsByName("radio");
-    for (i = 0; i < select_num.length; i++)
-    {
-        if(select_num[i].checked)
-            item_num = select_num[i].value;
-    }
-    // console.log("单选框里的是" + item_num);
-
-    var arr1_new = new Array(); //arr1_new存储词条数组
-    var arr2_new = ""; //arr2_new存储彩虹屁字符串
-
-    //第一部分，随机生成词条数组
-    for(var k = 0; k < item_num; k++){
-        var id = Math.ceil(Math.random()*(arr1.length) - 1);
-        if(arr1_new.indexOf(arr1[id]) === -1){
-            arr1_new.push(arr1[id]);
-        }else{
-            k= k - 1;
-            continue;
-        }
-    }
-    console.log(arr1_new);
-
-    //第二部分，随机生成彩虹屁字符串
-    var index = Math.ceil(Math.random()*(arr2.length) - 1);
-    arr2_new = arr2[index];
-    console.log(arr2_new);
-
-    //输出生成的字符串，包括n个词条+1句彩虹屁
-    var str_final = "";
-    for(j = 0; j < arr1_new.length; j++)
-        str_final += arr1_new[j];
-    str_final += arr2_new;
-    console.log(str_final);
-    document.getElementById("new_item").innerHTML = str_final;
-
-}
-
-//仅复制
-function copyItem() {
-    var e = document.getElementById("new_item");
-    e.select(); // 选择对象
-    document.execCommand("Copy"); // 执行浏览器复制命令
-    // alert("复制成功！");
-
-}
-
-//随机生成+复制
 function newItemAndCopy() {
     var item_num = 5;
 
@@ -204,22 +145,76 @@ function newItemAndCopy() {
             continue;
         }
     }
-    console.log(arr1_new);
+    // console.log(arr1_new);
 
     //第二部分，随机生成彩虹屁字符串
     var index = Math.ceil(Math.random()*(arr2.length) - 1);
     arr2_new = arr2[index];
-    console.log(arr2_new);
+    // console.log(arr2_new);
 
     //输出生成的字符串，包括n个词条+1句彩虹屁
     var str_final = "";
-    for(j = 0; j < arr1_new.length; j++)
+    for(j = 0; j < arr1_new.length; j++) {
         str_final += arr1_new[j];
+        str_final += "<br>";
+    }
     str_final += arr2_new;
-    console.log(str_final);
-    document.getElementById("new_item").innerHTML = str_final;
+    // console.log(str_final);
 
-    var e = document.getElementById("new_item");
-    e.select(); // 选择对象
-    document.execCommand("Copy"); // 执行浏览器复制命令
+    //把生成的字符串str_final填入div中
+    document.getElementById("new_item").innerHTML=str_final; 
+
+    //————————把框里的内容复制到剪贴板————————
+    var contentHolder = document.getElementById("new_item");
+
+    // 创建 createRange 方法对象
+    var range = document.createRange();
+    
+    // 创建 getSelection 方法对象，表示用户选择的文本范围或光标的当前位置。
+    var selection = window.getSelection();
+      
+    // 通过 selection.removeAllRanges() 方法清除选择范围
+    selection.removeAllRanges();
+      
+    // selectNodeContents 方法选择 contentHolder 子节点的内容
+    // 这里指 p 标签中的文本节点内容
+    range.selectNodeContents(contentHolder);
+      
+    // 一个区域（Range）对象将被增加到选区（Selection）当中。
+    // 将刚刚选中的 p 标签文本添加到 selection 
+    selection.addRange(range);
+  
+    // execCommand 中的 copy 方法拷贝刚刚选到的内容
+    document.execCommand('copy');
+      
+    // 重新初始化区域对象 range
+    selection.removeAllRanges();
+    //————————把框里的内容复制到剪贴板结束————————
+
+    //显示“复制成功”的弹窗，0.5s后自动消失
+    var layer=document.createElement("div");
+    layer.id="layer";
+    
+    var style={
+        background:"rgba(220,220,220,0.5)",
+        position:"absolute",
+        zIndex:10,
+        width:"200px",
+        height:"80px",
+        left:"50%",
+        top:"50%",
+        marginLeft:"-100px",
+        marginTop:"-40px"
+    }
+    for(var i in style)
+        layer.style[i]=style[i];   
+   
+    // 当找不到id为layer的控件时
+    if(document.getElementById("layer")==null){
+        document.body.appendChild(layer); // 在body中添加layer控件（layer在上面创建的）
+        layer.innerHTML="复制成功！"; // 设置显示类容
+        layer.style.textAlign="center"; // 将div中文本居中
+        layer.style.lineHeight="80px"; // 作用是调节字体行高与div同高，使其保持水平居中
+        setTimeout("document.body.removeChild(layer)",500); // 设置0.5s后去掉弹出窗
+    }
 }
