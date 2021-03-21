@@ -12,16 +12,20 @@
                 <label><input type="radio" name="radio" value="4">4</label>
                 <label><input type="radio" name="radio" value="5" checked>5</label>
                 <label><input type="radio" name="radio" value="6">6</label>
+                <label><input type="radio" name="radio" value="7">7</label>
+                <br>再加1句随机彩虹屁
             </form>
-            <text> + 1句随机彩虹屁</text>
         </div>
 
         <!-- 词条会在此textarea中生成 -->
         <textarea id="new_item" class="out-box"></textarea>
 
         <div>
-            <button onclick="newItem()">随机生成</button>
-            <button onclick="copyItem()">点击复制</button>
+            <div>
+                <button onclick="newItemAndCopy()" class="btn1div">随机生成+复制文字</button>
+            </div>
+            <button onclick="newItem()">仅随机生成</button>
+            <button onclick="copyItem()">仅复制文字</button>
         </div>
 
     <script src="fun.js"></script>
