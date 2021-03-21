@@ -82,6 +82,7 @@ var arr2 =[
     '你像夏至的分界线，是我一生里最长的那个白天'
 ];
 
+//仅随机生成
 function newItem() {
 
     var item_num = 5;
@@ -125,10 +126,57 @@ function newItem() {
 
 }
 
+//仅复制
 function copyItem() {
     var e = document.getElementById("new_item");
     e.select(); // 选择对象
     document.execCommand("Copy"); // 执行浏览器复制命令
     // alert("复制成功！");
 
+}
+
+//随机生成+复制
+function newItemAndCopy() {
+    var item_num = 5;
+
+    //获取单选框内的数字
+    var select_num = document.getElementsByName("radio");
+    for (i = 0; i < select_num.length; i++)
+    {
+        if(select_num[i].checked)
+            item_num = select_num[i].value;
+    }
+    // console.log("单选框里的是" + item_num);
+
+    var arr1_new = new Array(); //arr1_new存储词条数组
+    var arr2_new = ""; //arr2_new存储彩虹屁字符串
+
+    //第一部分，随机生成词条数组
+    for(var k = 0; k < item_num; k++){
+        var id = Math.ceil(Math.random()*(arr1.length) - 1);
+        if(arr1_new.indexOf(arr1[id]) === -1){
+            arr1_new.push(arr1[id]);
+        }else{
+            k= k - 1;
+            continue;
+        }
+    }
+    console.log(arr1_new);
+
+    //第二部分，随机生成彩虹屁字符串
+    var index = Math.ceil(Math.random()*(arr2.length) - 1);
+    arr2_new = arr2[index];
+    console.log(arr2_new);
+
+    //输出生成的字符串，包括n个词条+1句彩虹屁
+    var str_final = "";
+    for(j = 0; j < arr1_new.length; j++)
+        str_final += arr1_new[j];
+    str_final += arr2_new;
+    console.log(str_final);
+    document.getElementById("new_item").innerHTML = str_final;
+
+    var e = document.getElementById("new_item");
+    e.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
 }
