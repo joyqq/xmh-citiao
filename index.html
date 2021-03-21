@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+        <title>xmh净化词条</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="tishiwenzi">
+            <form method="post" name="form1">词条个数：
+                <label><input type="radio" name="radio" value="3">3</label>
+                <label><input type="radio" name="radio" value="4">4</label>
+                <label><input type="radio" name="radio" value="5" checked>5</label>
+                <label><input type="radio" name="radio" value="6">6</label>
+            </form>
+            <text> + 1句随机彩虹屁</text>
+        </div>
+
+        <!-- 词条会在此textarea中生成 -->
+        <textarea id="new_item" class="out-box"></textarea>
+
+        <div>
+            <button onclick="newItem()">随机生成</button>
+            <button onclick="copyItem()">点击复制</button>
+        </div>
+
+    <script src="fun.js"></script>
+    </body>
+</html>
