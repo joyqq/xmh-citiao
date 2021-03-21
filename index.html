@@ -17,16 +17,10 @@
             </form>
         </div>
 
-        <!-- 词条会在此textarea中生成 -->
-        <textarea id="new_item" class="out-box"></textarea>
+        <!-- 在这个p中会展示生成的词条，同时内容被复制到剪贴板 -->
+        <p id="new_item" class="out-box">请点击下方按钮</p>
 
-        <div>
-            <div>
-                <button onclick="newItemAndCopy()" class="btn1div">随机生成+复制文字</button>
-            </div>
-<!--             <button onclick="newItem()">仅随机生成</button> -->
-<!--             <button onclick="copyItem()">仅复制文字</button> -->
-        </div>
+        <button onclick="newItemAndCopy()" class="btn1div">随机生成+复制文字</button>
 
     <script src="fun.js"></script>
     </body>
