@@ -1,22 +1,22 @@
 var arr1 = [
-    '《徐明浩 那幕falling down》\n',
-    '《徐明浩 小时候的梦想当明星》\n',
-    '《徐明浩 作词作曲编舞》\n',
-    '《徐明浩 蓝鸟热趋常驻者》\n',
-    '《徐明浩 青春有你舞蹈导师》\n',
-    '《徐明浩 出道六周年》\n',
-    '《徐明浩 夜伴雨自作曲好听》\n',
-    '《徐明浩可爱》\n',
-    '《徐明浩温柔》\n',
-    '《徐明浩舞蹈》\n',
-    '《徐明浩舞台》\n',
-    '《徐明浩青你》\n',
-    '《徐明浩那幕》\n',
-    '《徐明浩综艺》\n',
-    '《徐明浩青春有你》\n',
-    '《徐明浩时尚》\n',
-    '《徐明浩有趣》\n',
-    '《徐明浩行走的画报》\n'
+    '《徐明浩 那幕falling down》',
+    '《徐明浩 小时候的梦想当明星》',
+    '《徐明浩 作词作曲编舞》',
+    '《徐明浩 蓝鸟热趋常驻者》',
+    '《徐明浩 青春有你舞蹈导师》',
+    '《徐明浩 出道六周年》',
+    '《徐明浩 夜伴雨自作曲好听》',
+    '《徐明浩可爱》',
+    '《徐明浩温柔》',
+    '《徐明浩舞蹈》',
+    '《徐明浩舞台》',
+    '《徐明浩青你》',
+    '《徐明浩那幕》',
+    '《徐明浩综艺》',
+    '《徐明浩青春有你》',
+    '《徐明浩时尚》',
+    '《徐明浩有趣》',
+    '《徐明浩行走的画报》'
 
 ];
 
@@ -145,13 +145,13 @@ function newItemAndCopy() {
     var arr1_new = new Array(); //arr1_new存储词条数组
     var arr2_new = ""; //arr2_new存储彩虹屁字符串
 
-    //第一部分，随机生成词条数组
+    //第一部分，随机抽取item_num个不重复词条
     for(var k = 0; k < item_num; k++){
         var id = Math.ceil(Math.random()*(arr1.length) - 1);
         if(arr1_new.indexOf(arr1[id]) === -1){
             arr1_new.push(arr1[id]);
         }else{
-            k= k - 1;
+            k = k - 1;
             continue;
         }
     }
@@ -174,34 +174,25 @@ function newItemAndCopy() {
     //把生成的字符串str_final填入div中
     document.getElementById("new_item").innerHTML=str_final; 
 
-    //————————把框里的内容复制到剪贴板————————
+    //————————————————把框里的内容复制到剪贴板 开始————————————————
     var contentHolder = document.getElementById("new_item");
-
     // 创建 createRange 方法对象
     var range = document.createRange();
-    
     // 创建 getSelection 方法对象，表示用户选择的文本范围或光标的当前位置。
     var selection = window.getSelection();
-      
     // 通过 selection.removeAllRanges() 方法清除选择范围
     selection.removeAllRanges();
-      
-    // selectNodeContents 方法选择 contentHolder 子节点的内容
-    // 这里指 p 标签中的文本节点内容
+    // 选择p标签中的文本节点内容
     range.selectNodeContents(contentHolder);
-      
-    // 一个区域（Range）对象将被增加到选区（Selection）当中。
-    // 将刚刚选中的 p 标签文本添加到 selection 
+    // 将刚刚选中的p标签文本添加到 selection 
     selection.addRange(range);
-  
     // execCommand 中的 copy 方法拷贝刚刚选到的内容
     document.execCommand('copy');
-      
     // 重新初始化区域对象 range
     selection.removeAllRanges();
-    //————————把框里的内容复制到剪贴板 结束————————
+    //————————————————把框里的内容复制到剪贴板 结束————————————————
 
-    //显示“复制成功”的弹窗，0.5s后自动消失
+    //————————————————显示复制成功弹窗并在.5s后自动消失 开始————————————————
     var layer=document.createElement("div");
     layer.id="layer";
     
@@ -227,4 +218,5 @@ function newItemAndCopy() {
         layer.style.lineHeight="80px"; // 作用是调节字体行高与div同高，使其保持水平居中
         setTimeout("document.body.removeChild(layer)",500); // 设置0.5s后去掉弹出窗
     }
+    //————————————————显示复制成功弹窗并在.5s后自动消失 结束————————————————
 }
