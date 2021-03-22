@@ -1,7 +1,9 @@
 .out-box {
     height: 250px;
     width: 300px;
+    padding: 5px;
     background-color: bisque;
+    border-radius: 5px;
 }
 
 .btn1div {
